@@ -1,12 +1,12 @@
 {
-  "name": "fantasy-football",
+  "name": "src",
   "version": "1.0.0",
-  "description": "A project by",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "description": ""
 }
