@@ -21,6 +21,6 @@ const teamSchema = new Schema(
   }
 );
 
-const Team = model('Team', teamSchema);
+const Team = model("Team", teamSchema);
 
-model.exports = Team;
+module.exports = Team;

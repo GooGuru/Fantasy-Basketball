@@ -1,39 +1,38 @@
-const { Schema, model } = require ('mongoose');
+const { Schema, model } = require("mongoose");
 
 const playerSchema = new Schema(
-{
+  {
     playerId: {
-        type: Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
     },
     playerFirstName: {
-        type: String,
-        required: true, 
+      type: String,
+      required: true,
     },
     playerLastName: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     playerPoints: {
-        type: Number,
-        required: true,
+      type: Number,
+      required: true,
     },
     playerPosition: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     playerteam: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
-    
-},
-{
-    toJSON:{
-        virtuals: true,
+  },
+  {
+    toJSON: {
+      virtuals: true,
     },
-}
-    );
+  }
+);
 
-const Player = model('player', playerSchema);
+const Player = model("player", playerSchema);
 
-module.exports = Player
+module.exports = Player;

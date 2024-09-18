@@ -41,28 +41,27 @@ const userSchema = new Schema(
   }
 );
 
-userSchema.pre('save', async function (next) {
-    if (this.isNew || this.isModified('password')) {
-        const saltRounds = 10;
-        this.password = await bcrypt.hash(this.password, saltRounds);
-    }
-    
-    next();
+userSchema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("password")) {
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
+
+  next();
 });
 
 userSchema.methods.isCorrectPassword = async function (password) {
-    return bcrypt.compare(password, this.password);
+  return bcrypt.compare(password, this.password);
 };
 
-userSchema.virtual('teamCount').get(function () {
-    return this.teams.length;
+userSchema.virtual("teamCount").get(function () {
+  return this.teams.length;
 });
 
-userSchema.virtual('leagueCount').get(function () {
-    return this.league.length;
+userSchema.virtual("leagueCount").get(function () {
+  return this.league.length;
 });
 
-const User = model('User', userSchema);
+const User = model("User", userSchema);
 
 module.exports = User;
-
