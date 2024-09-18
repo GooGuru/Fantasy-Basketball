@@ -1,6 +1,4 @@
 const { Schema, model } = require ('mongoose');
-const teamSchema = require ('./Team');
-
 
 const playerSchema = new Schema(
 {
@@ -23,7 +21,11 @@ const playerSchema = new Schema(
         type: String,
         required: true,
     },
-    team: [teamSchema],
+    playerteam: {
+        type: String,
+        required: true,
+    },
+    
 },
 {
     toJSON:{
