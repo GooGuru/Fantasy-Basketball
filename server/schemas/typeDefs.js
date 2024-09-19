@@ -12,10 +12,12 @@ const typeDefs = `
         playerteam: String!
     }
     type Team {
+        _id: ID
         teamName: String!
         teamPoints: Number
     }
     type User {
+        _id: ID
         username: String!
         email: String!
         password: String!
