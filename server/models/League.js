@@ -19,6 +19,7 @@ const leagueSchema = new Schema(
   }
 );
 
+
 const League = model("league", leagueSchema);
 
 module.exports = League;
