@@ -2,9 +2,6 @@ const { Schema, model } = require("mongoose");
 
 const playerSchema = new Schema(
   {
-    playerId: {
-      type: Schema.Types.ObjectId,
-    },
     playerFirstName: {
       type: String,
       required: true,

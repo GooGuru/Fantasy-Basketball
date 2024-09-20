@@ -31,8 +31,18 @@ const userSchema = new Schema(
       required: true,
       max_length: 50,
     },
-    leagues: [leagueSchema],
-    teams: [teamSchema],
+    leagues: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "league",
+      },
+    ],
+    teams: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "team",
+      },
+    ],
   },
   {
     toJSON: {

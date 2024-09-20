@@ -3,14 +3,16 @@ const teamSchema = require("./Team");
 
 const leagueSchema = new Schema(
   {
-    leagueId: {
-      type: Schema.Types.ObjectId,
-    },
     leagueName: {
       type: String,
       required: true,
     },
-    Teams: [teamSchema],
+    Teams: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "team",
+      },
+    ],
   },
   {
     toJSON: {
@@ -18,7 +20,6 @@ const leagueSchema = new Schema(
     },
   }
 );
-
 
 const League = model("league", leagueSchema);
 
