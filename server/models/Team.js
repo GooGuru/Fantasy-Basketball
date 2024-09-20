@@ -1,7 +1,5 @@
 const { Schema, model } = require("mongoose");
 
-const playerSchema = require("./Player");
-
 const teamSchema = new Schema(
   {
     teamName: {
@@ -12,7 +10,12 @@ const teamSchema = new Schema(
     teamPoints: {
       type: Number,
     },
-    players: [playerSchema],
+    players: [
+      {
+        type: Schema.Types.ObjectId, //foreign key
+        ref: "player",
+      },
+    ],
   },
   {
     toJSON: {

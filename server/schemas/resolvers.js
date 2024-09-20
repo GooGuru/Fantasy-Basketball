@@ -19,17 +19,17 @@ const resolvers = {
     }
   },
   Mutation: {
-    addLeague: async (parent, { leagueID, leagueName, Teams }) => {
-        return League.create({leagueID, leagueName, Teams});
+    addLeague: async (parent, { leagueName, Teams }) => {
+        return League.create({leagueName, Teams});
     },
-    addPlayer: async (parent, { playerID, playerFirstName, playerLastName, playerPoints, playerPosition, playerTeam }) => {
-        return League.create({playerID, playerFirstName, playerLastName, playerPoints, playerPosition, playerTeam});
+    addPlayer: async (parent, { playerFirstName, playerLastName, playerPoints, playerPosition, playerTeam }) => {
+        return Player.create({playerFirstName, playerLastName, playerPoints, playerPosition, playerTeam});
     },
     addTeam: async (parent, { teamName, teamPoints, players }) => {
-        return League.create({teamName, teamPoints, players});
+        return Team.create({teamName, teamPoints, players});
     },
     addUser: async (parent, { username, email, password, first, last, leagues, teams }) => {
-        return League.create({username, email, password, first, last, leagues, teams});
+        return User.create({username, email, password, first, last, leagues, teams});
     }
   }
 };
