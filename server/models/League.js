@@ -7,7 +7,12 @@ const leagueSchema = new Schema(
       type: String,
       required: true,
     },
-    Teams: [teamSchema],
+    Teams: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "team",
+      },
+    ],
   },
   {
     toJSON: {
@@ -15,7 +20,6 @@ const leagueSchema = new Schema(
     },
   }
 );
-
 
 const League = model("league", leagueSchema);
 

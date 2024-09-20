@@ -7,14 +7,14 @@ const typeDefs = `
         _id: ID
         playerFirstName: String!
         playerLastName: String!
-        playerPoints: Number!
+        playerPoints: Int!
         playerPosition: String!
         playerteam: String!
     }
     type Team {
         _id: ID
         teamName: String!
-        teamPoints: Number
+        teamPoints: Int
     }
     type User {
         _id: ID
@@ -35,13 +35,13 @@ const typeDefs = `
     type Mutation {
         addLeague(leagueName: String!): League
 
-        addPlayer(playerFirstName: String!, playerLastName: String!, playerPoints: Number!, playerPosition: String!, playerteam: String!): Player
+        addPlayer(playerFirstName: String!, playerLastName: String!, playerPoints: Int!, playerPosition: String!, playerteam: String!): Player
 
-        addTeam(teamName: String!, teamPoints: Number): Team
+        addTeam(teamName: String!, teamPoints: Int): Team
 
         addUser(username: String!, email: String!, password: String!, first: String!, last: String!): User
 
     }
-`
+`;
 
 module.exports = typeDefs;
