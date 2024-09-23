@@ -1,35 +1,39 @@
-const { League } = require("../models/League");
-const { Player } = require("../models/Player");
-const { Team } = require("../models/Team");
-const { User } = require("../models/User");
+const { League } = require("../models");
+const { Player } = require("../models");
+const { Team } = require("../models");
+const { User } = require("../models");
 
 const resolvers = {
   Query: {
     leagues: async () => {
-      return League.find({});
+      return League.find();
     },
     Players: async () => {
-      return Player.find({});
+      return Player.find();
     },
     Teams: async () => {
-      return Team.find({});
+      return Team.find();
     },
     Users: async () => {
-        return User.find({});
+      return User.find();
     }
   },
   Mutation: {
     addLeague: async (parent, { leagueName, Teams }) => {
-        return League.create({leagueName, Teams});
+        const  league = await League.create({ leagueName, Teams });
+        return league ;
     },
-    addPlayer: async (parent, { playerFirstName, playerLastName, playerPoints, playerPosition, playerTeam }) => {
-        return Player.create({playerFirstName, playerLastName, playerPoints, playerPosition, playerTeam});
+    addPlayer: async (parent, { playerFirstName, playerLastName, playerPoints, playerPosition, playerteam }) => {
+        const player = await Player.create({playerFirstName, playerLastName, playerPoints, playerPosition, playerteam});
+        return player ; 
     },
     addTeam: async (parent, { teamName, teamPoints, players }) => {
-        return Team.create({teamName, teamPoints, players});
+      const team = await Team.create({teamName, teamPoints, players});
+        return team ;
     },
     addUser: async (parent, { username, email, password, first, last, leagues, teams }) => {
-        return User.create({username, email, password, first, last, leagues, teams});
+      const user = await User.create({username, email, password, first, last, leagues, teams});
+        return user ;
     }
   }
 };
