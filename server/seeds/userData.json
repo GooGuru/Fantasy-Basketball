@@ -4,44 +4,34 @@
     "email": "john@example.com",
     "password": "password123",
     "first": "John",
-    "last": "Doe",
-    "leagues": ["Premier League"],
-    "teams": ["Manchester City"]
+    "last": "Doe"
   },
   {
     "username": "jane_smith",
     "email": "jane@example.com",
     "password": "securePass456",
     "first": "Jane",
-    "last": "Smith",
-    "leagues": ["La Liga"],
-    "teams": ["Barcelona"]
+    "last": "Smith"
   },
   {
     "username": "sam_brown",
     "email": "sam@example.com",
     "password": "mySecret789",
     "first": "Sam",
-    "last": "Brown",
-    "leagues": ["Bundesliga"],
-    "teams": ["Bayern Munich", "Borussia Dortmund"]
+    "last": "Brown"
   },
   {
     "username": "alice_jones",
     "email": "alice@example.com",
     "password": "alice123",
     "first": "Alice",
-    "last": "Jones",
-    "leagues": ["Serie A"],
-    "teams": ["Juventus"]
+    "last": "Jones"
   },
   {
     "username": "bob_white",
     "email": "bob@example.com",
     "password": "bobsecure321",
     "first": "Bob",
-    "last": "White",
-    "leagues": ["Ligue 1"],
-    "teams": ["Paris Saint-Germain"]
+    "last": "White"
   }
 ]
