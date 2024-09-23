@@ -1,0 +1,72 @@
+[
+  {
+    "playerFirstName": "Kevin",
+    "playerLastName": "De Bruyne",
+    "playerPoints": 85,
+    "playerPosition": "Midfielder",
+    "playerteam": "Manchester City"
+  },
+  {
+    "playerFirstName": "Mohamed",
+    "playerLastName": "Salah",
+    "playerPoints": 87,
+    "playerPosition": "Forward",
+    "playerteam": "Liverpool"
+  },
+  {
+    "playerFirstName": "Harry",
+    "playerLastName": "Kane",
+    "playerPoints": 84,
+    "playerPosition": "Forward",
+    "playerteam": "Tottenham Hotspur"
+  },
+  {
+    "playerFirstName": "Karim",
+    "playerLastName": "Benzema",
+    "playerPoints": 90,
+    "playerPosition": "Forward",
+    "playerteam": "Real Madrid"
+  },
+  {
+    "playerFirstName": "Lionel",
+    "playerLastName": "Messi",
+    "playerPoints": 95,
+    "playerPosition": "Forward",
+    "playerteam": "Paris Saint-Germain"
+  },
+  {
+    "playerFirstName": "Joshua",
+    "playerLastName": "Kimmich",
+    "playerPoints": 82,
+    "playerPosition": "Midfielder",
+    "playerteam": "Bayern Munich"
+  },
+  {
+    "playerFirstName": "Gianluigi",
+    "playerLastName": "Donnarumma",
+    "playerPoints": 80,
+    "playerPosition": "Goalkeeper",
+    "playerteam": "Paris Saint-Germain"
+  },
+  {
+    "playerFirstName": "Neymar",
+    "playerLastName": "Jr.",
+    "playerPoints": 88,
+    "playerPosition": "Forward",
+    "playerteam": "Paris Saint-Germain"
+  },
+  {
+    "playerFirstName": "Paulo",
+    "playerLastName": "Dybala",
+    "playerPoints": 81,
+    "playerPosition": "Forward",
+    "playerteam": "Juventus"
+  },
+  {
+    "playerFirstName": "Leroy",
+    "playerLastName": "Sane",
+    "playerPoints": 78,
+    "playerPosition": "Winger",
+    "playerteam": "Bayern Munich"
+  }
+]
