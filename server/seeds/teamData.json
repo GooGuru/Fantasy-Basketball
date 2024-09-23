@@ -1,0 +1,42 @@
+[
+  {
+    "teamName": "Manchester City",
+    "teamPoints": 75
+  },
+  {
+    "teamName": "Liverpool",
+    "teamPoints": 78
+  },
+  {
+    "teamName": "Chelsea",
+    "teamPoints": 70
+  },
+  {
+    "teamName": "Real Madrid",
+    "teamPoints": 80
+  },
+  {
+    "teamName": "Barcelona",
+    "teamPoints": 77
+  },
+  {
+    "teamName": "Bayern Munich",
+    "teamPoints": 82
+  },
+  {
+    "teamName": "Borussia Dortmund",
+    "teamPoints": 74
+  },
+  {
+    "teamName": "AC Milan",
+    "teamPoints": 79
+  },
+  {
+    "teamName": "Juventus",
+    "teamPoints": 75
+  },
+  {
+    "teamName": "Paris Saint-Germain",
+    "teamPoints": 85
+  }
+]
