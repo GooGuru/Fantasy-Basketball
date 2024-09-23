@@ -2,6 +2,8 @@ const typeDefs = `
     type League {
         _id: ID
         leagueName: String!
+        country: String!
+        season: Int!
     }
     type Player {
         _id: ID
@@ -30,6 +32,7 @@ const typeDefs = `
         Players: [Player]!
         Teams: [Team]!
         Users: [User]!
+        getExternalLeagues: [League]!       
     }
 
     type Mutation {
