@@ -2,6 +2,7 @@ const { League } = require("../models");
 const { Player } = require("../models");
 const { Team } = require("../models");
 const { User } = require("../models");
+const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -34,7 +35,23 @@ const resolvers = {
     addUser: async (parent, { username, email, password, first, last, leagues, teams }) => {
       const user = await User.create({username, email, password, first, last, leagues, teams});
         return user ;
-    }
+    },
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw AuthenticationError;
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw AuthenticationError;
+      }
+
+      const token = signToken(user);
+      return { token, user };
+    },
   }
 };
 
