@@ -34,6 +34,7 @@ const typeDefs = `
         Players: [Player]!
         Teams: [Team]!
         Users: [User]!
+        login: [login]
     }
 
     type Mutation {
