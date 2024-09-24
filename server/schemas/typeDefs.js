@@ -24,6 +24,10 @@ const typeDefs = `
         first: String!
         last: String!
     }
+    type login {
+        email: String!
+        password: String!
+    }
 
     type Query {
         leagues: [League]!
@@ -41,6 +45,7 @@ const typeDefs = `
 
         addUser(username: String!, email: String!, password: String!, first: String!, last: String!): User
 
+        login(email: String!, password: String!): login
     }
 `;
 
