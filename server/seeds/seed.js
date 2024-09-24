@@ -17,10 +17,10 @@ db.once("open", async () => {
     await cleanDB('Team', 'teams');
     await cleanDB('Player', 'players');
 
-    await User.insertMany(userData);
-    await League.insertMany(leagueData);
-    await Team.insertMany(teamData);
-    await Player.insertMany(playerData);
+    await User.create(userData);
+    await League.create(leagueData);
+    await Team.create(teamData);
+    await Player.create(playerData);
 
     console.log("Data has been seeded.");
     process.exit(0);
