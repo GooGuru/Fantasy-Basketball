@@ -4,7 +4,11 @@ import "../styles/Navigation.css";
 
 const Navigation = () => {
   return (
-    <nav className="navbar">
+    <header className="navbar">
+      <div className="navbar-title">
+      <h1 className="title">Fantasy Football</h1>
+      </div>
+    <nav>
       <ul className="nav-list">
         <li className="nav-item">
           <NavLink
@@ -35,6 +39,7 @@ const Navigation = () => {
         </li>
       </ul>
     </nav>
+    </header>
   );
 };
 
