@@ -10,7 +10,7 @@ const leagueSchema = new Schema(
     Teams: [
       {
         type: Schema.Types.ObjectId,
-        ref: "team",
+        ref: "Team",
       },
     ],
   },
@@ -21,6 +21,6 @@ const leagueSchema = new Schema(
   }
 );
 
-const League = model("league", leagueSchema);
+const League = model("League", leagueSchema);
 
 module.exports = League;

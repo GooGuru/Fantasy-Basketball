@@ -23,24 +23,22 @@ const userSchema = new Schema(
     },
     first: {
       type: String,
-      required: true,
       max_length: 50,
     },
     last: {
       type: String,
-      required: true,
       max_length: 50,
     },
     leagues: [
       {
         type: Schema.Types.ObjectId,
-        ref: "league",
+        ref: "League",
       },
     ],
     teams: [
       {
         type: Schema.Types.ObjectId,
-        ref: "team",
+        ref: "Team",
       },
     ],
   },

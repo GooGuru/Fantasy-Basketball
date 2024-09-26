@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import { useMutation } from '@apollo/client';
-// import { LoggedIn_User } from "../utils/mutations";
-// import Auth from '../utils/auth';
+import { useMutation } from '@apollo/client';
+import { LoggedIn_User } from "../utils/mutations";
+
+import Auth from '../utils/auth';
 
 const Login = (props) => {
     const [formState, setFormState] = useState({ email: '', password: ''});
-    // const [login, data ] = useMutation(LoggedIn_User);
+    const [login, data ] = useMutation(LoggedIn_User);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -21,15 +22,15 @@ const Login = (props) => {
 const handleFormSubmit = async (event) => {
   event.preventDefault();
   console.log(formState);
-//   try{
-//     const { data } = await login({
-//         variables: { ...formState },
-//     });
+  try{
+    const { data } = await login({
+        variables: { ...formState },
+    });
 
-//     Auth.login(data.login.token);
-//   } catch (e) {
-//     console.error(e);
-//   }
+    Auth.login(data.login.token);
+  } catch (e) {
+    console.error(e);
+  }
 
   setFormState({
     email: '',
@@ -41,11 +42,6 @@ const handleFormSubmit = async (event) => {
     <div>
       <h1>Login</h1>
       <div>
-        {/* {data ? (
-          <p>
-            <Link to="/team">Link to team page </Link>
-          </p>
-        ) : ( */}
           <form onSubmit={handleFormSubmit}>
             <input
               className="form-input"
@@ -80,8 +76,9 @@ const handleFormSubmit = async (event) => {
           </form>
         {/* )} */}
       </div>
-    </div>
- );
+      </div>
+
+   )   
 };
 
 export default Login;

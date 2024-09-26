@@ -13,7 +13,7 @@ const teamSchema = new Schema(
     players: [
       {
         type: Schema.Types.ObjectId, //foreign key
-        ref: "player",
+        ref: "Player",
       },
     ],
   },
