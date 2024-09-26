@@ -9,31 +9,31 @@ const resolvers = {
     leagues: async () => {
       return await League.find({});
     },
-    Players: async () => {
+    players: async () => {
       return await Player.find({});
     },
-    Teams: async () => {
+    teams: async () => {
       return await Team.find({});
     },
-    Users: async () => {
+    users: async () => {
       return await User.find({});
     }
   },
   Mutation: {
-    addLeague: async (parent, { leagueName, Teams }) => {
-        const  league = await League.create({ leagueName, Teams });
+    addLeague: async (parent, { leagueName }) => {
+        const  league = await League.create({ leagueName });
         return league ;
     },
     addPlayer: async (parent, { playerFirstName, playerLastName, playerPoints, playerPosition, playerTeam }) => {
         const player = await Player.create({playerFirstName, playerLastName, playerPoints, playerPosition, playerTeam});
         return player ; 
     },
-    addTeam: async (parent, { teamName, teamPoints, players }) => {
-      const team = await Team.create({teamName, teamPoints, players});
+    addTeam: async (parent, { teamName, teamPoints }) => {
+      const team = await Team.create({teamName, teamPoints});
         return team ;
     },
-    addUser: async (parent, { username, email, password, first, last, leagues, teams }) => {
-      const user = await User.create({username, email, password, first, last, leagues, teams});
+    addUser: async (parent, { username, email, password, first, last }) => {
+      const user = await User.create({username, email, password, first, last});
       const token = signToken(user);
         return { token, user };    
     },
