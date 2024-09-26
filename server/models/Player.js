@@ -12,15 +12,12 @@ const playerSchema = new Schema(
     },
     playerPoints: {
       type: Number,
-      required: true,
     },
     playerPosition: {
       type: String,
-      required: true,
     },
-    playerteam: {
+    playerTeam: {
       type: String,
-      required: true,
     },
   },
   {
@@ -30,6 +27,6 @@ const playerSchema = new Schema(
   }
 );
 
-const Player = model("player", playerSchema);
+const Player = model("Player", playerSchema);
 
 module.exports = Player;
