@@ -32,6 +32,7 @@ const client = new ApolloClient({
 })
 
 const App = () => {
+  console.log("App render");
   return (
     <>
       <ApolloProvider client={client}>

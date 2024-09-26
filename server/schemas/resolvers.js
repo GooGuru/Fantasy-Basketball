@@ -17,21 +17,124 @@ const resolvers = {
     },
     users: async () => {
       return await User.find({});
-    }
+    },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return Profile.findOne({ _id: context.user._id });
+      }
+      throw AuthenticationError;
+    },
   },
+
   Mutation: {
-    addLeague: async (parent, { leagueName }) => {
-        const  league = await League.create({ leagueName });
-        return league ;
+    addLeague: async (parent, { userId, leagueId }) => {
+        return User.findOneAndUpdate(
+          { _id: userId },
+          {
+            $addToSet: { leagues: leagueId },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
     },
-    addPlayer: async (parent, { playerFirstName, playerLastName, playerPoints, playerPosition, playerTeam }) => {
-        const player = await Player.create({playerFirstName, playerLastName, playerPoints, playerPosition, playerTeam});
-        return player ; 
+    addTeamToUser: async (parent, { userId, teamId }) => {
+        return User.findOneAndUpdate(
+          { _id: userId },
+          {
+            $addToSet: { teams: teamId },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
     },
-    addTeam: async (parent, { teamName, teamPoints }) => {
-      const team = await Team.create({teamName, teamPoints});
-        return team ;
+    addPlayer: async (parent, { teamId, playerId }) => {
+        return Team.findOneAndUpdate(
+          { _id: teamId },
+          {
+            $addToSet: { players: playerId },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
     },
+    addTeamToLeague: async (parent, { leagueId, teamId }) => {
+        return League.findOneAndUpdate(
+          { _id: leagueId },
+          {
+            $addToSet: { teams: teamId },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+    },
+    // addLeague: async (parent, { userId, leagueId }, context) => {
+    //   if (context.user) {
+    //     return User.findOneAndUpdate(
+    //       { _id: userId },
+    //       {
+    //         $addToSet: { leagues: leagueId },
+    //       },
+    //       {
+    //         new: true,
+    //         runValidators: true,
+    //       }
+    //     );
+    //   }
+    //   throw AuthenticationError;
+    // },
+    // addTeamToUser: async (parent, { userId, teamId }, context) => {
+    //   if (context.user) {
+    //     return User.findOneAndUpdate(
+    //       { _id: userId },
+    //       {
+    //         $addToSet: { teams: teamId },
+    //       },
+    //       {
+    //         new: true,
+    //         runValidators: true,
+    //       }
+    //     );
+    //   }
+    //   throw AuthenticationError;
+    // },
+    // addPlayer: async (parent, { teamId, playerId }, context) => {
+    //   if (context.user) {
+    //     return Team.findOneAndUpdate(
+    //       { _id: teamId },
+    //       {
+    //         $addToSet: { players: playerId },
+    //       },
+    //       {
+    //         new: true,
+    //         runValidators: true,
+    //       }
+    //     );
+    //   }
+    //   throw AuthenticationError;
+    // },
+    // addTeamToLeague: async (parent, { leagueId, teamId }, context) => {
+    //   if (context.user) {
+    //     return League.findOneAndUpdate(
+    //       { _id: leagueId },
+    //       {
+    //         $addToSet: { teams: teamId },
+    //       },
+    //       {
+    //         new: true,
+    //         runValidators: true,
+    //       }
+    //     );
+    //   }
+    //   throw AuthenticationError;
+    // },
     addUser: async (parent, { username, email, password, first, last }) => {
       const user = await User.create({username, email, password, first, last});
       const token = signToken(user);

@@ -33,6 +33,15 @@ const Navigation = () => {
             Login
           </NavLink>
         </li>
+        <li className="nav-item"> 
+          <NavLink
+            to="/players"
+            className="nav-link"
+            activeclassname="active-link"
+          >
+            Players
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
