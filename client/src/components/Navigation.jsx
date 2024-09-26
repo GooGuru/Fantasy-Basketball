@@ -26,7 +26,7 @@ const Navigation = () => {
         </li>
         <li className="nav-item">
           <NavLink
-            to="/login"
+            to="/"
             className="nav-link"
             activeclassname="active-link"
           >
