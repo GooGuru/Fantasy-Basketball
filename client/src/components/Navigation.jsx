@@ -5,6 +5,7 @@ import "../styles/Navigation.css";
 const Navigation = () => {
   return (
     <nav className="navbar">
+      <div className="nav-title">Fantasy Football</div> 
       <ul className="nav-list">
         <li className="nav-item">
           <NavLink
@@ -24,7 +25,7 @@ const Navigation = () => {
             Team
           </NavLink>
         </li>
-        <li className="nav-item">
+        <li className="nav-item"> 
           <NavLink
             to="/"
             className="nav-link"
@@ -33,7 +34,7 @@ const Navigation = () => {
             Login
           </NavLink>
         </li>
-        <li className="nav-item"> 
+        <li className="nav-item">
           <NavLink
             to="/players"
             className="nav-link"
