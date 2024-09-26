@@ -7,9 +7,6 @@ import Signup from "./pages/Signup.jsx";
 import Login from "./pages/login.jsx";
 import Team from "./pages/Team.jsx";
 import Leagues from "./pages/League.jsx";
-
-
-import Login from "./components/login.jsx"; 
 import League from "./components/League.jsx";
 import Players from "./components/Players.jsx";
 
