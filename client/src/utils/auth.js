@@ -1,19 +1,19 @@
-// import decode from 'jwt-decode';
+import decode from 'jwt-decode';
 
-// class AuthService {
+class AuthService {
 
-//     getToken() {
-//         return localStorage.getItem('id_token');
-//     }
-//     login (idToken) {
-//         localStorage.setItem('id_token', idToken);
-//         window.location.assign('/');
-//     }
+    getToken() {
+        return localStorage.getItem('id_token');
+    }
+    login (idToken) {
+        localStorage.setItem('id_token', idToken);
+        window.location.assign('/');
+    }
 
-//     logout(){
-//         localStorage.removeItem('id_token');
-//         window.location.reload;
-//     }
-// }
+    logout(){
+        localStorage.removeItem('id_token');
+        window.location.reload;
+    }
+}
 
-// export default new AuthService();
+export default new AuthService();

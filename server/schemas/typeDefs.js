@@ -27,8 +27,12 @@ const typeDefs = `
         last: String
         leagues: [League]
         teams: [Team]
-    }
 
+    }
+    type Auth {
+        token: ID!
+        user: User
+    }
     type Query {
         leagues: [League]
         players: [Player]
@@ -37,15 +41,15 @@ const typeDefs = `
     }
 
     type Mutation {
+        addUser(username: String!, email: String!, password: String!, first: String!, last: String!): Auth
+        login(email: String!, password: String!): Auth
+
+
         addLeague(leagueName: String!): League
 
         addPlayer(playerFirstName: String!, playerLastName: String!, playerPoints: Int!, playerPosition: String!, playerteam: String!): Player
 
-        addTeam(teamName: String!, teamPoints: Int): Team
-
-        addUser(username: String!, email: String!, password: String!, first: String!, last: String!): User
-
-        login(email: String!, password: String!): login
+        addTeam(teamName: String!, teamPoints: Int): User
     }
 `;
 

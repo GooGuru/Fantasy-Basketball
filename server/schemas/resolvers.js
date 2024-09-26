@@ -35,7 +35,7 @@ const resolvers = {
     addUser: async (parent, { username, email, password, first, last, leagues, teams }) => {
       const user = await User.create({username, email, password, first, last, leagues, teams});
       const token = signToken(user);
-        return { token, user };
+        return { token, user };    
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
