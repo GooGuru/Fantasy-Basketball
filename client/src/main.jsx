@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/league",
-        element: <Leagues />,
+        element: <League />,
       },
       {
         path: "/signup",
