@@ -24,9 +24,9 @@ const typeDefs = `
         first: String!
         last: String!
     }
-    type login {
-        email: String!
-        password: String!
+    type Auth {
+    token: ID!
+    user: User
     }
 
     type Query {
@@ -42,11 +42,11 @@ const typeDefs = `
 
         addPlayer(playerFirstName: String!, playerLastName: String!, playerPoints: Int!, playerPosition: String!, playerteam: String!): Player
 
-        addTeam(teamName: String!, teamPoints: Int): Team
+        addTeam(teamName: String!, teamPoints: Int): User
 
-        addUser(username: String!, email: String!, password: String!, first: String!, last: String!): User
+        addUser(username: String!, email: String!, password: String!, first: String!, last: String!): Auth
 
-        login(email: String!, password: String!): login
+        login(email: String!, password: String!): Auth
     }
 `;
 
