@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Signup from "./pages/Signup.jsx";
 import Login from "./pages/login.jsx";
 import Team from "./pages/Team.jsx";
-import League from "./pages/League.jsx";
+import Leagues from "./pages/League.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/league",
-        element: <League />,
+        element: <Leagues />,
       },
       {
         path: "/signup",
