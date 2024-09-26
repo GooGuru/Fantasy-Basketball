@@ -1,13 +1,12 @@
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-
-// import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Login from "./pages/login.jsx";
-import Team from "./pages/Team.jsx";
-import League from "./pages/League.jsx";
+import Login from "./components/login.jsx"; 
+import Team from "./components/Team.jsx"; 
+import League from "./components/League.jsx";
+import Players from "./components/Players.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,13 +25,13 @@ const router = createBrowserRouter([
         path: "/league",
         element: <League />,
       },
+      {
+        path: "/players",
+        element: <Players />,
+      },
     ],
   },
 ]);
-
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//   <RouterProvider router={router} />
-// )
 
 createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} />
