@@ -4,7 +4,7 @@ import "./index.css";
 
 // import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import Signup from "./pages/Signup.jsx";
 import Login from "./pages/login.jsx";
 import Team from "./pages/Team.jsx";
 import League from "./pages/League.jsx";
@@ -25,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/league",
         element: <League />,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
       },
     ],
   },

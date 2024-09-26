@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import { useMutation } from '@apollo/client';
 // import { LoggedIn_User } from "../utils/mutations";
 // import Auth from '../utils/auth';
@@ -72,6 +72,11 @@ const handleFormSubmit = async (event) => {
               Submit
             </button>
             {/* </Link> */}
+            <Link to= "/signup">
+            <button>
+                Signup
+            </button></Link>
+            
           </form>
         {/* )} */}
       </div>
