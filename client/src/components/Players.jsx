@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../styles/Players.css"; 
 
 const Players = () => {
   const [playersArray, setPlayersArray] = useState([]);
@@ -22,7 +23,6 @@ const Players = () => {
       const response = await fetch("https://v3.football.api-sports.io/players?league=39&season=2022", requestOptions);
       const data = await response.json();
 
-
       if (data.response) {
         const players = data.response.map(playerData => {
           const player = playerData.player;
@@ -31,6 +31,7 @@ const Players = () => {
             id: player.id,
             name: `${player.firstname} ${player.lastname}`,
             position: position,
+            photo: player.photo 
           };
         });
 
@@ -44,19 +45,21 @@ const Players = () => {
   };
 
   return (
-    <div>
+    <div className="players-container">
       <h1>Players List</h1>
-      {playersArray.length > 0 ? (
-        <ul>
-          {playersArray.map(player => (
-            <li key={player.id}>
-              {player.name} - Position: {player.position}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No players found.</p>
-      )}
+      <div className="cards-container">
+        {playersArray.length > 0 ? (
+          playersArray.map(player => (
+            <div key={player.id} className="player-card">
+              <img src={player.photo} alt={player.name} className="player-photo" />
+              <h2>{player.name}</h2>
+              <p>Position: {player.position}</p>
+            </div>
+          ))
+        ) : (
+          <p>No players found.</p>
+        )}
+      </div>
     </div>
   );
 };
