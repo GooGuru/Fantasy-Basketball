@@ -5,8 +5,8 @@ import { useState } from "react";
 // import Auth from '../utils/auth';
 
 const Login = (props) => {
-    const [formState, setFormState] = useState({ username: '', password: ''});
-    // const [login, { data }] = useMutation(LoggedIn_User);
+    const [formState, setFormState] = useState({ email: '', password: ''});
+    // const [login, data ] = useMutation(LoggedIn_User);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -32,7 +32,7 @@ const handleFormSubmit = async (event) => {
 //   }
 
   setFormState({
-    username: '',
+    email: '',
     password: '',
   });
 };
@@ -49,10 +49,10 @@ const handleFormSubmit = async (event) => {
           <form onSubmit={handleFormSubmit}>
             <input
               className="form-input"
-              placeholder="Your Username"
-              name="username"
-              type="username"
-              value={formState.username}
+              placeholder="Your email"
+              name="email"
+              type="email"
+              value={formState.email}
               onChange={handleChange}
             />
             <input
