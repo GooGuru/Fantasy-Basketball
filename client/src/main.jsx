@@ -6,9 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Signup from "./pages/Signup.jsx";
 import Login from "./pages/login.jsx";
 import Team from "./pages/Team.jsx";
-import Leagues from "./pages/League.jsx";
 import League from "./components/League.jsx";
-import Players from "./components/Players.jsx";
+import Players from "./pages/Players.jsx";
 
 
 const router = createBrowserRouter([
