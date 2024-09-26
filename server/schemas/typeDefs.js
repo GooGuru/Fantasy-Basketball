@@ -38,18 +38,19 @@ const typeDefs = `
         players: [Player]
         teams: [Team]
         users: [User]
+        me: User
     }
 
     type Mutation {
         addUser(username: String!, email: String!, password: String!, first: String!, last: String!): Auth
         login(email: String!, password: String!): Auth
 
+        addLeague(userId: ID!, leagueId: ID!): User
+        addTeamToUser(userId: ID!, teamId: ID!): User
 
-        addLeague(leagueName: String!): League
-
-        addPlayer(playerFirstName: String!, playerLastName: String!, playerPoints: Int!, playerPosition: String!, playerteam: String!): Player
-
-        addTeam(teamName: String!, teamPoints: Int): User
+        addPlayer(teamId: ID!, playerId: ID!): Team
+        
+        addTeamToLeague(leagueId: ID!, teamId: ID!): League        
     }
 `;
 

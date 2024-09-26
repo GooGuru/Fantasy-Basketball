@@ -17,18 +17,64 @@ const resolvers = {
     },
     users: async () => {
       return await User.find({});
-    }
-  },
-  Mutation: {
-    addLeague: async (parent, { leagueName }) => {
-        const  league = await League.create({ leagueName });
-        return league ;
     },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return Profile.findOne({ _id: context.user._id });
+      }
+      throw AuthenticationError;
+    },
+  },
+
+    // // Add a third argument to the resolver to access data in our `context`
+    // addSkill: async (parent, { profileId, skill }, context) => {
+    //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
+    //   if (context.user) {
+    //     return Profile.findOneAndUpdate(
+    //       { _id: profileId },
+    //       {
+    //         $addToSet: { skills: skill },
+    //       },
+    //       {
+    //         new: true,
+    //         runValidators: true,
+    //       }
+    //     );
+    //   }
+    //   // If user attempts to execute this mutation and isn't logged in, throw an error
+    //   throw AuthenticationError;
+    // },
+
+
+  Mutation: {
+    addLeague: async (parent, { userId, leagueId }, context) => {
+      if (context.user) {
+        return User.findOneAndUpdate(
+          { _id: userId },
+          {
+            $addToSet: { leagues: leagueId },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw AuthenticationError;
+    },
+    // addLeague: async (parent, { leagueName }) => {
+    //     const  league = await League.create({ leagueName });
+    //     return league ;
+    // },
     addPlayer: async (parent, { playerFirstName, playerLastName, playerPoints, playerPosition, playerTeam }) => {
         const player = await Player.create({playerFirstName, playerLastName, playerPoints, playerPosition, playerTeam});
         return player ; 
     },
-    addTeam: async (parent, { teamName, teamPoints }) => {
+    addTeamToLeague: async (parent, { teamName, teamPoints }) => {
+      const team = await Team.create({teamName, teamPoints});
+        return team ;
+    },
+    addTeamToUser: async (parent, { teamName, teamPoints }) => {
       const team = await Team.create({teamName, teamPoints});
         return team ;
     },
