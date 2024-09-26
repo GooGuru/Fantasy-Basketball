@@ -7,16 +7,16 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 const resolvers = {
   Query: {
     leagues: async () => {
-      return League.find();
+      return await League.find({});
     },
     Players: async () => {
-      return Player.find();
+      return await Player.find({});
     },
     Teams: async () => {
-      return Team.find();
+      return await Team.find({});
     },
     Users: async () => {
-      return User.find();
+      return await User.find({});
     }
   },
   Mutation: {
@@ -24,8 +24,8 @@ const resolvers = {
         const  league = await League.create({ leagueName, Teams });
         return league ;
     },
-    addPlayer: async (parent, { playerFirstName, playerLastName, playerPoints, playerPosition, playerteam }) => {
-        const player = await Player.create({playerFirstName, playerLastName, playerPoints, playerPosition, playerteam});
+    addPlayer: async (parent, { playerFirstName, playerLastName, playerPoints, playerPosition, playerTeam }) => {
+        const player = await Player.create({playerFirstName, playerLastName, playerPoints, playerPosition, playerTeam});
         return player ; 
     },
     addTeam: async (parent, { teamName, teamPoints, players }) => {
@@ -34,7 +34,8 @@ const resolvers = {
     },
     addUser: async (parent, { username, email, password, first, last, leagues, teams }) => {
       const user = await User.create({username, email, password, first, last, leagues, teams});
-        return user ;
+      const token = signToken(user);
+        return { token, user };
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });

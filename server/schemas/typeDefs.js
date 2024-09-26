@@ -2,39 +2,38 @@ const typeDefs = `
     type League {
         _id: ID
         leagueName: String!
+        teams: [Team]
     }
     type Player {
         _id: ID
         playerFirstName: String!
         playerLastName: String!
-        playerPoints: Int!
-        playerPosition: String!
-        playerteam: String!
+        playerPoints: Int
+        playerPosition: String
+        playerTeam: String
     }
     type Team {
         _id: ID
         teamName: String!
         teamPoints: Int
+        players: [Player]
     }
     type User {
         _id: ID
         username: String!
         email: String!
         password: String!
-        first: String!
-        last: String!
-    }
-    type login {
-        email: String!
-        password: String!
+        first: String
+        last: String
+        leagues: [League]
+        teams: [Team]
     }
 
     type Query {
-        leagues: [League]!
-        Players: [Player]!
-        Teams: [Team]!
-        Users: [User]!
-        login: [login]
+        leagues: [League]
+        players: [Player]
+        teams: [Team]
+        users: [User]
     }
 
     type Mutation {
