@@ -42,6 +42,9 @@ const handleFormSubmit = async (event) => {
     <div>
       <h1>Login</h1>
       <div>
+        {data ? (
+            <Link to= './team'></Link>
+        ) : (
           <form onSubmit={handleFormSubmit}>
             <input
               className="form-input"
@@ -74,10 +77,9 @@ const handleFormSubmit = async (event) => {
             </button></Link>
             
           </form>
-        {/* )} */}
+         )} 
       </div>
       </div>
-
    )   
 };
 
